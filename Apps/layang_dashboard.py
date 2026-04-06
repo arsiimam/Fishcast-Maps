@@ -72,13 +72,13 @@ CHUNKSIZE        = 1_000_000
 PREDICTORS = ["SLA", "EKE", "SST", "CHL", "SSS"]
 
 MONTHS = [
-"Januari","Februari","Maret","April","Mei","Juni",
-"Juli","Agustus","September","Oktober","November","Desember"
+    "Januari","Februari","Maret","April","Mei","Juni",
+    "Juli","Agustus","September","Oktober","November","Desember"
 ]
 
 HSI_CMAP = LinearSegmentedColormap.from_list(
-"hsi",
-["#1a9850","#a6d96a","#ffffbf","#fdae61","#d73027"]
+    "hsi",
+    ["#1a9850","#a6d96a","#ffffbf","#fdae61","#d73027"]
 )
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
@@ -86,9 +86,9 @@ st.sidebar.title("🐟 HSI Layang")
 st.sidebar.divider()
 
 sel_month = st.sidebar.selectbox(
-"Bulan",
-options=list(range(1, 13)),
-format_func=lambda m: MONTHS[m - 1]
+    "Bulan",
+    options=list(range(1, 13)),
+    format_func=lambda m: MONTHS[m - 1]
 )
 
 show_all = st.sidebar.checkbox("12 bulan sekaligus", value=False)
@@ -148,7 +148,14 @@ def build_climatology():
 
         parts.append(agg)
 
-    return pd.concat(parts)
+    combined = pd.concat(parts)
+
+    # Final aggregation to remove cross-chunk duplicates
+    return combined.groupby(
+        ["month", "lat_c", "lon_c"]
+    ).agg(
+        hsi_mean=("hsi_mean", "mean")
+    ).reset_index()
 
 # ── Load data ─────────────────────────────────────────────────────────────────
 if not DATA_FILE.exists():
