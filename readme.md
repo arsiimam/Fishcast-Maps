@@ -1,0 +1,1 @@
+echo "# FishCast Maps" >> README.md
