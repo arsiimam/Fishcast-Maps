@@ -57,12 +57,12 @@ SPECIES_CONFIG: dict[str, dict] = {
         "predictors":    ["SLA", "EKE", "SST", "CHL", "SSS"],
         "color_accent":  "#2166ac",
     },
-    "Tongkol": {
+    "Tuna Albacore": {
         "label":      "Ikan Tongkol",
         "emoji":      "",
-        "data_daily":    ROOT / "Data"   / "HSI_tongkol_daily.csv",
-        "data_monthly":  ROOT / "Data"   / "HSI_tongkol_full_grid.csv",
-        "model":         ROOT / "Models" / "rf_tongkol_model.joblib",
+        "data_daily":    ROOT / "Data"   / "HSI_albacore_daily.csv",
+        "data_monthly":  ROOT / "Data"   / "HSI_albacore_full_grid.csv",
+        "model":         ROOT / "Models" / "rf_albacore_model.joblib",
         "predictors":    ["SLA", "EKE", "SST", "CHL", "SSS"],
         "color_accent":  "#d73027",
     },
@@ -114,7 +114,7 @@ HSI_CMAP = LinearSegmentedColormap.from_list(
 
 st.set_page_config(
     page_title="Fishcast – ZPPI",
-    page_icon="🎣",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -279,7 +279,7 @@ with st.sidebar:
     sel_location = st.selectbox(
         "Lokasi",
         options=list(LOCATIONS.keys()),
-        index=0,                       # Default: DIY
+        index=4,                       # Default: DIY
         label_visibility="collapsed",
     )
 
