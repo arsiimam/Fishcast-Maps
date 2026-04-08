@@ -21,8 +21,8 @@ except ImportError:
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="HSI Kembung Dashboard",
-    page_icon="🐟",
+    page_title="ZPPI Kembung Dashboard",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -73,12 +73,12 @@ MONTHS = [
 ]
 
 HSI_CMAP = LinearSegmentedColormap.from_list(
-    "hsi",
+    "ZPPI",
     ["#1a9850","#a6d96a","#ffffbf","#fdae61","#d73027"]
 )
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
-st.sidebar.title(" Habitat Suitability Index Ikan Kembung")
+st.sidebar.title("Zona Potensi Penangkapan Ikan Kembung")
 st.sidebar.divider()
 
 sel_month = st.sidebar.selectbox(
@@ -350,7 +350,7 @@ def show_metrics(df):
 
 
 # ── UI ────────────────────────────────────────────────────────────────────────
-st.title(" Habitat Suitability Index Ikan Kembung Dashboard")
+st.title("Zona Potesi Penangkapan Ikan Kembung Dashboard")
 
 if not HAS_CARTOPY:
     st.warning(
