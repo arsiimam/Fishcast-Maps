@@ -58,7 +58,16 @@ SPECIES_CONFIG: dict[str, dict] = {
         "color_accent":  "#2166ac",
     },
     "Tuna Albacore": {
-        "label":      "Ikan Tongkol",
+        "label":      "Ikan Tuna Albacore",
+        "emoji":      "",
+        "data_daily":    ROOT / "Data"   / "HSI_albacore_daily.csv",
+        "data_monthly":  ROOT / "Data"   / "HSI_albacore_full_grid.csv",
+        "model":         ROOT / "Models" / "rf_albacore_model.joblib",
+        "predictors":    ["SLA", "EKE", "SST", "CHL", "SSS"],
+        "color_accent":  "#d73027",
+    },
+    "Tuna Skipjack Tuna": {
+        "label":      "Ikan Tuna Skipjack Tuna",
         "emoji":      "",
         "data_daily":    ROOT / "Data"   / "HSI_albacore_daily.csv",
         "data_monthly":  ROOT / "Data"   / "HSI_albacore_full_grid.csv",
