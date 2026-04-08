@@ -350,7 +350,7 @@ def show_metrics(df):
 
 
 # ── UI ────────────────────────────────────────────────────────────────────────
-st.title("Zona Potesi Penangkapan Ikan Kembung Dashboard")
+st.title("Zona Potensi Penangkapan Ikan Kembung")
 
 if not HAS_CARTOPY:
     st.warning(
